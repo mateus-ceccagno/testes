@@ -1,37 +1,30 @@
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4Suite.java to edit this template
  */
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 /**
  *
  * @author Aluno
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({})
-public class IMCTestSuite {
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
+@Suite.SuiteClasses(value={IMCTest.class, PessoaTest.class})
+public class IMCTestSuite extends TestCase {    
+    public IMCTestSuite(String testName) {
+        super(testName);
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
+    public static Test suite() {
+        TestSuite suite = new TestSuite("IMCTestSuite");
+        suite.addTest(new TestSuite(IMCTest.class));
+        suite.addTest(new TestSuite(PessoaTest.class));
+        return suite;
     }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-    
 }
