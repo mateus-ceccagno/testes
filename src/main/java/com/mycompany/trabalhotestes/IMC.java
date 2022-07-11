@@ -16,7 +16,11 @@ public class IMC {
     static String obesidadeSereva = "Obesidade Severa";
     static String obesidadeMorbida = "Obesidade Mórbida";
 
-
+    static String infancia = "Infância";
+    static String adolescencia = "Adolescência";
+    static String adulto = "Fase Adulta";
+    static String velhice = "Velhice";
+    
     public IMC() { 
     }
     
@@ -42,5 +46,20 @@ public class IMC {
     public float obterIMC(Pessoa pessoa){
         float imcCalculado = pessoa.peso / (pessoa.altura * pessoa.altura);
         return imcCalculado;
+    }
+    
+    public String obterClassificacaoEtaria(int idade){
+        String classificacao = "";
+
+        if (idade <= 11)
+            classificacao = infancia;
+        else if (idade > 11 && idade < 21)
+            classificacao = adolescencia;
+        else if (idade >= 21 && idade < 75)
+            classificacao = adulto;
+        else if (idade >= 75)
+            classificacao = velhice;
+        
+        return classificacao;
     }
 }
